@@ -518,19 +518,23 @@
         function mostrarYaConfirmado(nombre = "") {
             cargando.classList.add("oculto");
             contenido.classList.remove("oculto");
-
+        
             nombreInvitado.textContent =
                 nombre || "Invitado";
-
+        
             document.querySelector(".limite")
                 .classList.add("oculto");
-
+        
             opciones.innerHTML = "";
-
+        
             botonConfirmar.classList.add("oculto");
-
+        
             mensaje.textContent =
-                "Tu asistencia ya había sido confirmada. ¡Gracias!";
+                "Tu asistencia ya había sido confirmada. Regresando a la invitación...";
+        
+            setTimeout(() => {
+                window.location.replace(URL_INVITACION_CANVA);
+            }, 2500);
         }
 
         function mostrarError(texto) {
