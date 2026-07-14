@@ -242,6 +242,8 @@
 
         const URL_APPS_SCRIPT =
             "https://script.google.com/macros/s/AKfycbwXdjWYMlq8m23Ws7pWCcfp6FkvjmaoHZzijCPyj5qIgo-QLQ72TzaRCywWCVMQCww7uA/exec";
+        const URL_INVITACION_CANVA =
+            "https://cumplexvcamila.my.canva.site/";
 
         const cargando = document.getElementById("cargando");
         const contenido = document.getElementById("contenido");
@@ -467,16 +469,20 @@
             switch (resultado.estado) {
                 case "ok":
                     opciones.innerHTML = "";
-
+                
                     botonConfirmar.classList.add("oculto");
-
+                
                     mensaje.textContent =
                         `¡Gracias! Registramos la asistencia de ${asistentesSeleccionados} ${
                             asistentesSeleccionados === 1
                                 ? "persona"
                                 : "personas"
-                        }.`;
-
+                        }. Regresando a la invitación...`;
+                
+                    setTimeout(() => {
+                        window.location.replace(URL_INVITACION_CANVA);
+                    }, 2500);
+                
                     break;
 
                 case "ya_confirmado":
