@@ -1,18 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-<title>Redireccionando...</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Invitación digital de XV años"
+    >
+
+    <title>Mis XV Años</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
-<div class="contenedor">
-<h2>Abriendo invitación...</h2>
-<p>Espera un momento.</p>
-<div class="loader"></div>
-</div>
-<script src="redirect.js"></script>
+
+    <!-- Pantalla de carga -->
+    <div id="pantallaCarga" class="pantalla-carga">
+        <div class="cargador"></div>
+        <p>Preparando tu invitación...</p>
+    </div>
+
+    <!-- Error de invitación -->
+    <section id="seccionError" class="seccion-error oculto">
+        <div class="tarjeta-error">
+            <h1>Invitación no encontrada</h1>
+
+            <p id="mensajeError">
+                No fue posible identificar esta invitación.
+            </p>
+        </div>
+    </section>
+
+    <!-- Invitación completa -->
+    <main id="invitacion" class="oculto">
+
+        <!-- Música -->
+        <button
+            id="botonMusica"
+            class="boton-musica"
+            type="button"
+            aria-label="Reproducir música"
+        >
+            ♫
+        </button>
+
+        <audio id="musicaFondo" loop preload="none">
+            <source src="audio/musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Portada -->
+        <section class="seccion portada">
+
+            <div class="decoracion flor-superior">
+                🌸
+            </div>
+
+            <div class="contenido-portada">
+                <p class="texto-pequeno">Mis XV años</p>
+
+                <h1 class="nombre-quinceanera">
+                    Nombre de la quinceañera
+                </h1>
+
+                <div class="linea-decorativa"></div>
+
+                <p class="fecha-evento">
+                    00 · 00 · 2026
+                </p>
+
+                <p class="mensaje-portada">
+                    Hay momentos inolvidables que se atesoran
+                    para siempre en el corazón.
+                </p>
+
+                <a
+                    href="#bienvenida"
+                    class="boton-principal"
+                >
+                    Ver invitación
+                </a>
+            </div>
+
+            <div class="decoracion flor-inferior">
+                🌸
+            </div>
+
+        </section>
+
+        <!-- Bienvenida personalizada -->
+        <section id="bienvenida" class="seccion bienvenida">
+
+            <p class="subtitulo">Con mucha alegría</p>
+
+            <h2>
+                ¡Hola,
+                <span id="nombreInvitado">invitado</span>!
+            </h2>
+
+            <p class="texto-central">
+                Nos encantará compartir contigo este día tan especial.
+            </p>
+
+            <div class="tarjeta-lugares">
+                <p>Hemos reservado para ti</p>
+
+                <strong id="numeroLugares">0</strong>
+
+                <p id="textoLugares">lugares</p>
+            </div>
+
+        </section>
+
+        <!-- Cuenta regresiva -->
+        <section class="seccion cuenta-regresiva">
+
+            <p class="subtitulo">Falta muy poco</p>
+
+            <h2>Cuenta regresiva</h2>
+
+            <div class="contador">
+
+                <div class="contador-bloque">
+                    <span id="dias">00</span>
+                    <small>Días</small>
+                </div>
+
+                <div class="contador-bloque">
+                    <span id="horas">00</span>
+                    <small>Horas</small>
+                </div>
+
+                <div class="contador-bloque">
+                    <span id="minutos">00</span>
+                    <small>Minutos</small>
+                </div>
+
+                <div class="contador-bloque">
+                    <span id="segundos">00</span>
+                    <small>Segundos</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Fotografía principal -->
+        <section class="seccion seccion-fotografia">
+
+            <div class="marco-fotografia">
+                <img
+                    src="img/foto-principal.jpg"
+                    alt="Fotografía de la quinceañera"
+                    onerror="this.parentElement.classList.add('sin-foto')"
+                >
+            </div>
+
+        </section>
+
+        <!-- Padres -->
+        <section class="seccion personas-importantes">
+
+            <p class="subtitulo">Con la bendición de Dios</p>
+
+            <h2>Mis padres</h2>
+
+            <p class="nombre-persona">
+                Nombre de la mamá
+            </p>
+
+            <p class="nombre-persona">
+                Nombre del papá
+            </p>
+
+        </section>
+
+        <!-- Ceremonia -->
+        <section class="seccion evento">
+
+            <p class="subtitulo">Ceremonia religiosa</p>
+
+            <h2>Templo</h2>
+
+            <p class="dato-evento">
+                Sábado 00 de mes de 2026
+            </p>
+
+            <p class="dato-evento">
+                5:00 p. m.
+            </p>
+
+            <p class="direccion">
+                Escribe aquí la dirección de la ceremonia.
+            </p>
+
+            <a
+                href="#"
+                class="boton-secundario"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Ver ubicación
+            </a>
+
+        </section>
+
+        <!-- Recepción -->
+        <section class="seccion evento evento-alterno">
+
+            <p class="subtitulo">Recepción</p>
+
+            <h2>Salón del evento</h2>
+
+            <p class="dato-evento">
+                7:00 p. m.
+            </p>
+
+            <p class="direccion">
+                Escribe aquí la dirección de la recepción.
+            </p>
+
+            <a
+                href="#"
+                class="boton-secundario"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Ver ubicación
+            </a>
+
+        </section>
+
+        <!-- Galería -->
+        <section class="seccion galeria">
+
+            <p class="subtitulo">Momentos especiales</p>
+
+            <h2>Galería</h2>
+
+            <div class="rejilla-galeria">
+
+                <img
+                    src="img/foto-1.jpg"
+                    alt="Fotografía 1"
+                >
+
+                <img
+                    src="img/foto-2.jpg"
+                    alt="Fotografía 2"
+                >
+
+                <img
+                    src="img/foto-3.jpg"
+                    alt="Fotografía 3"
+                >
+
+                <img
+                    src="img/foto-4.jpg"
+                    alt="Fotografía 4"
+                >
+
+            </div>
+
+        </section>
+
+        <!-- Código de vestimenta -->
+        <section class="seccion vestimenta">
+
+            <p class="subtitulo">Código de vestimenta</p>
+
+            <h2>Formal</h2>
+
+            <p class="texto-central">
+                Agradecemos reservar el color rosa para la quinceañera.
+            </p>
+
+        </section>
+
+        <!-- Confirmación -->
+        <section id="confirmacion" class="seccion confirmacion">
+
+            <p class="subtitulo">Confirmación de asistencia</p>
+
+            <h2>¿Cuántas personas asistirán?</h2>
+
+            <p id="mensajeLimite" class="texto-central"></p>
+
+            <div id="opcionesAsistentes" class="opciones-asistentes"></div>
+
+            <button
+                id="botonConfirmar"
+                class="boton-principal"
+                type="button"
+                disabled
+            >
+                Confirmar asistencia
+            </button>
+
+            <p
+                id="mensajeConfirmacion"
+                class="mensaje-confirmacion"
+            ></p>
+
+        </section>
+
+        <!-- Pie -->
+        <footer class="pie-pagina">
+            <p>Gracias por formar parte de este día especial.</p>
+        </footer>
+
+    </main>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
