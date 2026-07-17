@@ -651,31 +651,50 @@
                     resultado.invitado ||
                     resultado;
 
-                if (
-                    resultado.estado === "ok" &&
-                    datosInvitado &&
+        if (
+            resultado.estado === "ok" &&
+            datosInvitado &&
+            datosInvitado.id
+        ) {
+            idInvitado =
+                String(
                     datosInvitado.id
-                ) {
-                    idInvitado =
-                        String(
-                            datosInvitado.id
-                        ).trim();
-
-                    guardarIdentificador(
-                        idInvitado
-                    );
-
-                    mostrarMensajeRecuperacion(
-                        "Invitación encontrada. Cargando...",
-                        false
-                    );
-
-                    await cargarInvitadoPorId(
-                        idInvitado
-                    );
-
-                    return;
-                }
+                ).trim();
+        
+            guardarIdentificador(
+                idInvitado
+            );
+        
+            const confirmado =
+                String(
+                    datosInvitado.confirmado || ""
+                )
+                .trim()
+                .toUpperCase();
+        
+            if (confirmado === "SI") {
+                mostrarYaConfirmado(
+                    datosInvitado.nombre || ""
+                );
+        
+                return;
+            }
+        
+            cargarDatos({
+                nombre:
+                    datosInvitado.nombre ||
+                    "Invitado",
+        
+                limite:
+                    datosInvitado.limite,
+        
+                confirmado:
+                    datosInvitado.confirmado ||
+                    ""
+            });
+        
+            return;
+        }
 
                 mostrarMensajeRecuperacion(
                     resultado.mensaje ||
