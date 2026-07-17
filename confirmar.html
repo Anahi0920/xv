@@ -1129,9 +1129,7 @@
         function validarUrlApi() {
             if (
                 !URL_APPS_SCRIPT ||
-                URL_APPS_SCRIPT.includes(
-                    "https://script.google.com/macros/s/AKfycbwXdjWYMlq8m23Ws7pWCcfp6FkvjmaoHZzijCPyj5qIgo-QLQ72TzaRCywWCVMQCww7uA/exec"
-                )
+                URL_APPS_SCRIPT.includes("PEGA_AQUI")
             ) {
                 throw new Error(
                     "Falta configurar la URL del Apps Script."
